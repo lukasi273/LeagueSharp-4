@@ -306,20 +306,8 @@ namespace jesuisFiora
                     return;
                 }
 
-                var path = target.GetWaypoints();
-                if (path.Count == 1 || Player.Distance(target) < 700)
+                if (CastQ(target))
                 {
-                    CastQ(target);
-                    return;
-                }
-
-                var d = target.Distance(path[1]);
-                var d2 = Player.Distance(path[1]);
-                var t = d / target.MoveSpeed;
-                var dT = Q.Delay + Game.Ping / 2000f - t;
-                if ((dT > .2f || (d2 < 690 && dT > -1)) && CastQ(target))
-                {
-                    //  Console.WriteLine("{0} {1}", dT, d2);
                     return;
                 }
             }
